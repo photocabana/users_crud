@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>Read All Users</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table class="middle">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in user %}
+        <tr>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.created_at }}</td>
+            <td>
+                <a href="/show/{{user.id}}">Show</a> | 
+                <a href="/fourth/{{user.id}}">Edit</a> | 
+                <a href="/third/{{user.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="window.location.href='/second'" class="new_click" >Add a New User</button>
+</body>
+</html>
+
+<!-- Format for adding images -->
+<!-- <img src="{{ url_for('static', filename='images/img.png') }}"> -->

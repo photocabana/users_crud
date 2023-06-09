@@ -1,0 +1,1 @@
+SELECT * FROM users_two_schema.users_two;

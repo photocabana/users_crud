@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>Update Users</title>
+</head>
+<body>
+    <h1>Edit User</h1>
+    <button onclick="window.location.href='/'" class="add_click">Home</button>
+    <wrapper class="enter_form">
+        <form action="/fourth" method="post">
+            <h2>Edit {{user.first_name}}</h2>
+            <input type="hidden" name="id" value={{user.id}}>
+            <div>
+                <label>First Name:</label>
+                <input type="text" name="first_name"value="{{user.first_name}}">
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="last_name" value="{{user.last_name}}">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" value="{{user.email}}">
+            </div>
+            <button type="submit">Update</button>
+            <button type="reset"  onclick="window.location.href='/show/{{user.id}}'" class="add_click">Show User</button>
+        </form>
+    </wrapper>
+</body>
+</html>
+
+
+<!-- Format for adding images -->
+<!-- <img src="{{ url_for('static', filename='images/img.png') }}"> -->
